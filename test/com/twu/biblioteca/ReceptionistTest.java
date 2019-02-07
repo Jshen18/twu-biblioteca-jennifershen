@@ -7,8 +7,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
+
 
 public class ReceptionistTest {
+
     @Test
     public void testGreet() {
 
@@ -18,6 +21,20 @@ public class ReceptionistTest {
         greet.greetCustomer();
         assertEquals(outContent.toString(), "Welcome to Biblioteca. Your one stop-shop for great book titles in Bangalore!\n");
     }
+
+
+//    @Test
+//    public void greetingTest() {
+//        PrintStream printStream = mock(PrintStream.class);
+//        Receptionist greetingPrinter = new Receptionist(printStream);
+//
+//        greetingPrinter.greetCustomer();
+//
+//        verify(printStream).println("Greetings!");
+//    }
+
+
+
 }
 
 
