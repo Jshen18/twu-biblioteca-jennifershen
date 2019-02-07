@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.List;
+
 public class Receptionist {
 
     public void greetCustomer() {
@@ -8,9 +10,9 @@ public class Receptionist {
 
     public void showBooksToCustomer() {
         Library books = new Library();
-        String[] listOfBooks = books.getListOfBooks();
+        List<Book> listOfBooks = books.getListOfBooks();
 
-        for (String book: listOfBooks) {
+        for (Book book: listOfBooks) {
             System.out.println(book);
         }
     }

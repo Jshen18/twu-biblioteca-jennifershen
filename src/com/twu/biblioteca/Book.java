@@ -1,12 +1,30 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-
 public class Book {
 
-    String[] books = new String[]{"Harry Potter and the Chamber of Secrets | J.K. Rowling | 2005\n", "The Water Cure |  Sophie Mackintosh | 2019\n", "Black Leopard, Red Wolf |  Marlon James |  2019\n", "Where Reasons End |  Yiyun Li | 2018"};
 
-    public String[] getBooks() {
-        return books;
+    private String title;
+    private String author;
+    private String year;
+
+    public Book(String title, String author, String year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+
     }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getAuthor() {
+        return this.author;
+    }
+
+    public String getYear(){
+        return this.year;
+    }
+
+
 }
