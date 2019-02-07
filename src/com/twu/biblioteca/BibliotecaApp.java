@@ -10,22 +10,22 @@ public class BibliotecaApp {
         Receptionist reception = new Receptionist();
 //        reception.greetCustomer();
 //        reception.showBooksToCustomer();
-        System.out.println("List of Books");
+        System.out.println("1: List of Books");
 
 
         Scanner scanner = new Scanner(System.in);
-        String userInput = scanner.next();
+        int userInput = scanner.nextInt();
         switch (userInput) {
-            case "one":
+            case 1:
                 reception.showBooksToCustomer();
                 break;
 
-            case "two":
+            case 2:
                 System.out.println("PRINT CASE 2");
                 break;
 
             default:
-                System.out.println("DEFAULT");
+                System.out.println("Please Select a valid option!");
 
         }
 
