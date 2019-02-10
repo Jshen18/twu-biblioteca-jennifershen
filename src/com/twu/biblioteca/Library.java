@@ -2,7 +2,9 @@ package com.twu.biblioteca;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +16,7 @@ public class Library {
 
 
     private ArrayList<String> books = new ArrayList<String>( Arrays.asList("Harry Potter and the Chamber of Secrets | J.K. Rowling | 2005\n", "The Water Cure |  Sophie Mackintosh | 2019\n", "Black Leopard, Red Wolf |  Marlon James |  2019\n", "Where Reasons End |  Yiyun Li | 2018"));
+    private ArrayList<String> checkedOutBooks = new ArrayList<>();
 
     public List<Book> getListOfBooks() {
         List<Book> listOfBooks = new ArrayList<>();
@@ -25,26 +28,44 @@ public class Library {
         return listOfBooks;
     }
 
-    public void checkoutBooks() {
-        this.updateListOfBooks();
+    public void returnBooks() {
+        Scanner input = new Scanner(System.in);
+        String userInput = input.nextLine();
+
+        if (checkedOutBooks.size() > 0) {
+            for (int i = 0; i < checkedOutBooks.size(); i ++) {
+                String title = checkedOutBooks.get(i).split(" \\|")[0];
+                if (title.equals(userInput)) {
+                    System.out.println("Successful Return!");
+                    books.add(title);
+                    checkedOutBooks.remove(i);
+                    break;
+                }
+            }
+
+        }
     }
 
-    public boolean updateListOfBooks() {
+    public boolean checkoutBooks() {
 
         Scanner input = new Scanner(System.in);
         String userInput = input.nextLine();
 
+        Boolean found = false;
+
         for (int i = 0; i < books.size() ; i++) {
             String title = books.get(i).split(" \\|")[0];
             if (title.equals(userInput)){
-                System.out.println(i + " index of book title");
+                System.out.println("Thank you enjoy the book!");
+                checkedOutBooks.add(books.get(i));
                 books.remove(i);
+                found = true;
                 break;
             }
         }
-        return true;
+        if (!found) {
+            System.out.println("Sorry, that book is not available");
+        }
+        return found;
     }
-
-
-
 }

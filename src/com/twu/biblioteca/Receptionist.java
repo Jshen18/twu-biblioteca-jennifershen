@@ -25,7 +25,7 @@ public class Receptionist {
 
         printStream.println("1: List of Books");
         printStream.println("2: Checkout Book by Title");
-        printStream.println("3: Choice 3");
+        printStream.println("3: Return Book by Title");
         printStream.println("4: Quit Biblioteca");
 
         int userInput;
@@ -41,7 +41,8 @@ public class Receptionist {
                     this.checkoutBook();
                     break;
                 case 3:
-                    printStream.println("choice 3");
+                    printStream.println("Enter Book Title to Return");
+                    this.returnBooks();
                     break;
                 case 4:
                     printStream.println("QUIT");
@@ -65,8 +66,12 @@ public class Receptionist {
     }
 
     public void checkoutBook() {
-        this.library.updateListOfBooks();
+        this.library.checkoutBooks();
 
+    }
+
+    public void returnBooks() {
+        this.library.returnBooks();
     }
 
 
