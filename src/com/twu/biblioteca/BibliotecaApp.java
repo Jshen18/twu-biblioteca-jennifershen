@@ -1,15 +1,15 @@
 package com.twu.biblioteca;
 
-import java.nio.file.Files;
-import java.util.Scanner;
 
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-
-        Receptionist reception = new Receptionist();
+        Library library = new Library();
+        System.out.println("MAIN");
+        Receptionist reception = new Receptionist(System.out, library);
         reception.greetCustomer();
         reception.showOptionsToCustomer();
+
 
 
     }
