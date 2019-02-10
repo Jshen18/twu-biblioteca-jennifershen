@@ -28,9 +28,11 @@ public class Library {
         return listOfBooks;
     }
 
-    public void returnBooks() {
+    public boolean returnBooks() {
         Scanner input = new Scanner(System.in);
         String userInput = input.nextLine();
+
+        Boolean found = false;
 
         if (checkedOutBooks.size() > 0) {
             for (int i = 0; i < checkedOutBooks.size(); i ++) {
@@ -39,11 +41,16 @@ public class Library {
                     System.out.println("Thank you for returning the book!");
                     books.add(checkedOutBooks.get(i));
                     checkedOutBooks.remove(i);
+                    found = true;
                     break;
                 }
             }
+            if (!found) {
+                System.out.println("That is not a valid book to return");
+            }
 
         }
+        return found;
     }
 
     public boolean checkoutBooks() {
@@ -56,7 +63,7 @@ public class Library {
         for (int i = 0; i < books.size() ; i++) {
             String title = books.get(i).split(" \\|")[0];
             if (title.equals(userInput)){
-                System.out.println("Thank you enjoy the book!");
+                System.out.println("Thank you! Enjoy the book!");
                 checkedOutBooks.add(books.get(i));
                 books.remove(i);
                 found = true;
