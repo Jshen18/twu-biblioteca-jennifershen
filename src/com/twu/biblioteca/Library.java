@@ -37,7 +37,7 @@ public class Library {
                 String title = checkedOutBooks.get(i).split(" \\|")[0];
                 if (title.equals(userInput)) {
                     System.out.println("Successful Return!");
-                    books.add(title);
+                    books.add(checkedOutBooks.get(i));
                     checkedOutBooks.remove(i);
                     break;
                 }
