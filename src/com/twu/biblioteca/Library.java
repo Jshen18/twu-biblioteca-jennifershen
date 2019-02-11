@@ -18,6 +18,22 @@ public class Library {
     private ArrayList<String> books = new ArrayList<String>( Arrays.asList("Harry Potter and the Chamber of Secrets | J.K. Rowling | 2005\n", "The Water Cure |  Sophie Mackintosh | 2019\n", "Black Leopard, Red Wolf |  Marlon James |  2019\n", "Where Reasons End |  Yiyun Li | 2018"));
     private ArrayList<String> checkedOutBooks = new ArrayList<>();
 
+    private ArrayList<String> movies = new ArrayList<String>( Arrays.asList("The Matrix | John Doe | 1998 | 9.5", "Home Alone | Jane Doe | 1999 | 8.5", "6th Sense | John Smith | 2000 | 7", "The Notebook | Jane Smith | 2005 | 9"));
+    private ArrayList<String> checkedOutMovies = new ArrayList<>();
+
+    public List<Movie> getListOfMovies() {
+        List<Movie> listOfMovies = new ArrayList<>();
+        for (String rawMovie : movies) {
+            String[] movieDetails = rawMovie.split("\\|");
+            Movie movie = new Movie(movieDetails[0], movieDetails[1], movieDetails[2], movieDetails[3]);
+            listOfMovies.add(movie);
+        }
+        return listOfMovies;
+    }
+
+
+
+
     public List<Book> getListOfBooks() {
         List<Book> listOfBooks = new ArrayList<>();
        for (String rawBook : books ) {
