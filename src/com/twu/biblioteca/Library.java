@@ -31,7 +31,28 @@ public class Library {
         return listOfMovies;
     }
 
+    public boolean checkoutMovie() {
 
+        Scanner input = new Scanner(System.in);
+        String userInput = input.nextLine();
+
+        Boolean found = false;
+
+        for (int i = 0; i < movies.size() ; i++) {
+            String title = movies.get(i).split(" \\|")[0];
+            if (title.equals(userInput)){
+                System.out.println("Thank you! Enjoy the movie!");
+                checkedOutMovies.add(movies.get(i));
+                movies.remove(i);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Sorry, that movie is not available");
+        }
+        return found;
+    }
 
 
     public List<Book> getListOfBooks() {

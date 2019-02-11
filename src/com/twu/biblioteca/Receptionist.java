@@ -27,7 +27,8 @@ public class Receptionist {
         printStream.println("2: Checkout Book by Title");
         printStream.println("3: Return Book by Title");
         printStream.println("4: Movie Selections");
-        printStream.println("5: Quit Biblioteca");
+        printStream.println("5: Checkout Movie by Name");
+        printStream.println("7: Quit Biblioteca");
 
         int userInput;
         do {
@@ -46,10 +47,13 @@ public class Receptionist {
                     this.returnBooks();
                     break;
                 case 4:
-                    printStream.println("Movies");
                     this.showMoviesToCustomer();
                     break;
                 case 5:
+                    printStream.println("Enter Movie Name to Checkout");
+                    this.checkoutMovie();
+                    break;
+                case 6:
                     printStream.println("QUIT");
                     break;
 
@@ -58,7 +62,7 @@ public class Receptionist {
 
             }
 
-        } while (userInput != 5);
+        } while (userInput != 7);
 
     }
 
@@ -67,6 +71,10 @@ public class Receptionist {
         for (Movie movie: listOfMovies) {
             printStream.println(movie.getName() + movie.getDirector() + movie.getYear() + movie.getRating());
         }
+    }
+
+    public void checkoutMovie() {
+        this.library.checkoutMovie();
     }
 
     public void showBooksToCustomer() {
